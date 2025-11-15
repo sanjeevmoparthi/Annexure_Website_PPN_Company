@@ -40,7 +40,7 @@ def download_annexure1():
 
     try:
         
-        df = pd.read_excel(file, engine="openpyxl", read_only=True)
+        df = pd.read_excel(file, engine="openpyxl")
 
         out_io = annex.annexure1_generate_excel_bytes(df)
 
@@ -72,7 +72,7 @@ def download_annexure2():
 
     try:
         
-        df = pd.read_excel(file, engine="openpyxl", read_only=True)
+        df = pd.read_excel(file, engine="openpyxl")
 
         out_io = annex.annexure2_generate_excel_bytes(df)
 
@@ -104,7 +104,7 @@ def download_annexure3():
 
     try:
         
-        df = pd.read_excel(file, engine="openpyxl", read_only=True)
+        df = pd.read_excel(file, engine="openpyxl")
 
         out_io = annex.annexure3_generate_excel_bytes(df)
 
@@ -135,7 +135,7 @@ def download_annexure4():
 
     try:
         
-        df = pd.read_excel(file, engine="openpyxl", read_only=True)
+        df = pd.read_excel(file, engine="openpyxl")
 
         out_io = annex.annexure4_generate_excel_bytes(df)
 
@@ -167,7 +167,7 @@ def download_annexure5():
 
     try:
         
-        df = pd.read_excel(file, engine="openpyxl", read_only=True)
+        df = pd.read_excel(file, engine="openpyxl")
 
         out_io = annex.annexure5_generate_excel_bytes(df)
 
@@ -191,7 +191,7 @@ def download_annexure6():
 
     try:
         
-        df = pd.read_excel(file, engine="openpyxl", read_only=True)
+        df = pd.read_excel(file, engine="openpyxl")
 
         out_io = annex.annexure6_generate_excel_bytes(df)
 
@@ -221,7 +221,7 @@ def download_annexure7():
 
     try:
         
-        df = pd.read_excel(file, engine="openpyxl", read_only=True)
+        df = pd.read_excel(file, engine="openpyxl")
 
         out_io = annex.annexure7_generate_excel_bytes(df)
 
@@ -252,7 +252,7 @@ def download_annexure8():
 
     try:
         
-        df = pd.read_excel(file, engine="openpyxl", read_only=True)
+        df = pd.read_excel(file, engine="openpyxl")
 
         out_io = annex.annexure8_generate_excel_bytes(df)
 
@@ -283,7 +283,7 @@ def download_annexure9():
 
     try:
         
-        df = pd.read_excel(file, engine="openpyxl", read_only=True)
+        df = pd.read_excel(file, engine="openpyxl")
 
         out_io = annex.annexure9_generate_excel_bytes(df)  # Make sure this function exists in annexure_functions
 
