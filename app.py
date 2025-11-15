@@ -8,7 +8,9 @@ import os
 ALLOWED_EXT = {'xls', 'xlsx'}
 MAX_CONTENT_LENGTH = 50 * 1024 * 1024  # 50 MB limit
 
-app = Flask(__name__)
+# app = Flask(__name__)
+app = Flask(__name__, static_folder='static', template_folder='templates')
+
 app.secret_key = "change_this_in_prod"
 app.config['MAX_CONTENT_LENGTH'] = MAX_CONTENT_LENGTH
 
@@ -37,7 +39,9 @@ def download_annexure1():
         return redirect(url_for('index'))
 
     try:
-        df = pd.read_excel(file)
+        
+        df = pd.read_excel(file, engine="openpyxl", read_only=True)
+
         out_io = annex.annexure1_generate_excel_bytes(df)
 
         return send_file(
@@ -67,7 +71,9 @@ def download_annexure2():
         return redirect(url_for('index'))
 
     try:
-        df = pd.read_excel(file)
+        
+        df = pd.read_excel(file, engine="openpyxl", read_only=True)
+
         out_io = annex.annexure2_generate_excel_bytes(df)
 
         return send_file(
@@ -97,7 +103,9 @@ def download_annexure3():
         return redirect(url_for('index'))
 
     try:
-        df = pd.read_excel(file)
+        
+        df = pd.read_excel(file, engine="openpyxl", read_only=True)
+
         out_io = annex.annexure3_generate_excel_bytes(df)
 
         return send_file(
@@ -126,7 +134,9 @@ def download_annexure4():
         return redirect(url_for('index'))
 
     try:
-        df = pd.read_excel(file)
+        
+        df = pd.read_excel(file, engine="openpyxl", read_only=True)
+
         out_io = annex.annexure4_generate_excel_bytes(df)
 
         return send_file(
@@ -156,7 +166,9 @@ def download_annexure5():
         return redirect(url_for('index'))
 
     try:
-        df = pd.read_excel(file)
+        
+        df = pd.read_excel(file, engine="openpyxl", read_only=True)
+
         out_io = annex.annexure5_generate_excel_bytes(df)
 
         return send_file(
@@ -178,7 +190,9 @@ def download_annexure6():
         return redirect(url_for('index'))
 
     try:
-        df = pd.read_excel(file)
+        
+        df = pd.read_excel(file, engine="openpyxl", read_only=True)
+
         out_io = annex.annexure6_generate_excel_bytes(df)
 
         return send_file(
@@ -206,7 +220,9 @@ def download_annexure7():
         return redirect(url_for('index'))
 
     try:
-        df = pd.read_excel(file)
+        
+        df = pd.read_excel(file, engine="openpyxl", read_only=True)
+
         out_io = annex.annexure7_generate_excel_bytes(df)
 
         return send_file(
@@ -235,7 +251,9 @@ def download_annexure8():
         return redirect(url_for('index'))
 
     try:
-        df = pd.read_excel(file)
+        
+        df = pd.read_excel(file, engine="openpyxl", read_only=True)
+
         out_io = annex.annexure8_generate_excel_bytes(df)
 
         return send_file(
@@ -264,7 +282,9 @@ def download_annexure9():
         return redirect(url_for('index'))
 
     try:
-        df = pd.read_excel(file)
+        
+        df = pd.read_excel(file, engine="openpyxl", read_only=True)
+
         out_io = annex.annexure9_generate_excel_bytes(df)  # Make sure this function exists in annexure_functions
 
         return send_file(
