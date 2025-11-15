@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Annexure Reports</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <style>
+    body { font-family: Arial; margin: 30px; }
+    table { width: 70%; border-collapse: collapse; }
+    th, td { padding: 10px; border: 1px solid #ddd; text-align: center; }
+    th { background: #f5f5f5; }
+    button { padding: 8px 12px; border-radius: 6px; border: none; background: #007bff; color: #fff; cursor: pointer; }
+    input[type=file] { margin-top: 8px; }
+    .notice { color: green; }
+  </style>
+</head>
+
+<body>
+
+{% with msgs = get_flashed_messages(with_categories=true) %}
+{% if msgs %}
+  {% for category, msg in msgs %}
+    <div style="color:red; font-weight:bold;">
+      {{ msg }}
+    </div>
+  {% endfor %}
+{% endif %}
+{% endwith %}
+
+<h2>PPN And Company</h2>
+
+<!-- Main visible file input -->
+<label><strong>Select Combined XLSX File:</strong></label><br>
+<input id="mainFile" type="file" accept=".xls,.xlsx" required><br><br>
+
+<table>
+  <tr>
+    <th>Annexure No.</th>
+    <th>Description</th>
+    <th>Download</th>
+  </tr>
+
+  <!-- Annexure 1 -->
+  <tr>
+    <td>Annexure 1</td>
+    <td>Vendor Wise Margin</td>
+    <td>
+      <form id="form1" action="/download/1" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileAnnex1" style="display:none;">
+        <button type="submit">Download</button>
+      </form>
+    </td>
+  </tr>
+
+  <!-- Annexure 2 -->
+  <tr>
+    <td>Annexure 2</td>
+    <td>Brand Wise Margin</td>
+    <td>
+      <form id="form2" action="/download/2" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileAnnex2" style="display:none;">
+        <button type="submit">Download</button>
+      </form>
+    </td>
+  </tr>
+
+  <!-- Annexure 3 -->
+  <tr>
+    <td>Annexure 3</td>
+    <td>Brand Wise Sales</td>
+    <td>
+      <form id="form3" action="/download/3" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileAnnex3" style="display:none;">
+        <button type="submit">Download</button>
+      </form>
+    </td>
+  </tr>
+
+  <!-- Annexure 4 -->
+  <tr>
+    <td>Annexure 4</td>
+    <td>Product Wise Sales Summary</td>
+    <td>
+      <form id="form4" action="/download/4" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileAnnex4" style="display:none;">
+        <button type="submit">Download</button>
+      </form>
+    </td>
+  </tr>
+
+  <!-- Annexure 5 -->
+  <tr>
+    <td>Annexure 5</td>
+    <td>Product Wise Contribution (Multi-Sheet)</td>
+    <td>
+      <form id="form5" action="/download/5" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileAnnex5" style="display:none;">
+        <button type="submit">Download</button>
+      </form>
+    </td>
+  </tr>
+
+  <!-- Annexure 6 -->
+  <tr>
+    <td>Annexure 6</td>
+    <td>Negative Margin Sales</td>
+    <td>
+      <form id="form6" action="/download/6" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileAnnex6" style="display:none;">
+        <button type="submit">Download</button>
+      </form>
+    </td>
+  </tr>
+
+  <!-- Annexure 7 -->
+  <tr>
+    <td>Annexure 7</td>
+    <td>Profit Below 10%</td>
+    <td>
+      <form id="form7" action="/download/7" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileAnnex7" style="display:none;">
+        <button type="submit">Download</button>
+      </form>
+    </td>
+  </tr>
+
+  <!-- Annexure 8 -->
+  <tr>
+    <td>Annexure 8</td>
+    <td>Neither Profit Nor Loss</td>
+    <td>
+      <form id="form8" action="/download/8" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileAnnex8" style="display:none;">
+        <button type="submit">Download</button>
+      </form>
+    </td>
+  </tr>
+
+  <!-- Annexure 9 -->
+  <tr>
+    <td>Annexure 9</td>
+    <td>HighVendorMArgin-LowProfitMargin</td>
+    <td>
+      <form id="form9" action="/download/9" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileAnnex9" style="display:none;">
+        <button type="submit">Download</button>
+      </form>
+    </td>
+  </tr>
+
+</table>
+
+<p class="notice">Note: Upload a valid combined data Excel with required columns.</p>
+
+<!-- JS: Copy uploaded file to all forms -->
+<script>
+document.getElementById("mainFile").addEventListener("change", function() {
+    let uploadedFile = this.files[0];
+
+    function copyFile(targetInput) {
+        let dt = new DataTransfer();
+        dt.items.add(uploadedFile);
+        targetInput.files = dt.files;
+    }
+
+    copyFile(document.getElementById("fileAnnex1"));
+    copyFile(document.getElementById("fileAnnex2"));
+    copyFile(document.getElementById("fileAnnex3"));
+    copyFile(document.getElementById("fileAnnex4"));
+    copyFile(document.getElementById("fileAnnex5"));
+    copyFile(document.getElementById("fileAnnex6"));
+    copyFile(document.getElementById("fileAnnex7"));
+    copyFile(document.getElementById("fileAnnex8"));
+    copyFile(document.getElementById("fileAnnex9"));  /* Annexure 9 */
+});
+</script>
+
+</body>
+</html>

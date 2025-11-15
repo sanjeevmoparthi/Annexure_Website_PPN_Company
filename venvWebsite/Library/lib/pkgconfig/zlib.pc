@@ -1,0 +1,13 @@
+prefix=C:/Sanjeev_Playground/Annexure_website/venvWebsite/Library
+exec_prefix=C:/Sanjeev_Playground/Annexure_website/venvWebsite/Library
+libdir=C:/Sanjeev_Playground/Annexure_website/venvWebsite/Library/lib
+sharedlibdir=C:/Sanjeev_Playground/Annexure_website/venvWebsite/Library/lib
+includedir=C:/Sanjeev_Playground/Annexure_website/venvWebsite/Library/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.3.1
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
